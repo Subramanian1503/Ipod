@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import ControlMenu from './ControlMenu';
+import Ipod from './Ipod';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <ControlMenu />
+    <Ipod />
   </React.StrictMode>
 );
 
