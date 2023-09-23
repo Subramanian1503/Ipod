@@ -1,55 +1,69 @@
-import React from 'react';
-import './css/ControlMenu.css';
+import React from "react";
+import "./css/ControlMenu.css";
 
 class ControlMenu extends React.Component {
+  componentDidMount() {
+    // // Create region for zing touch to handle rotate event
+    // const zingtouchRegion = new ZingTouch.Region(document.body);
 
-    componentDidMount() {
+    // // Get the wheel element to detect rotate component in it
+    // const controlWheel = document.getElementById("wheelButton");
 
-    }
+    // // Bind the call back function with the rotate event of the wheel element
+    // zingtouchRegion.bind(
+    //   controlWheel,
+    //   "rotate",
+    //   (event) => {
+    //     console.log(event);
+    //   },
+    //   false
+    // );
+  }
 
-    shouldComponentUpdate() {
+  render() {
+    return (
+      /* control menu buttons container */
+      <div className="controlMenuContainer">
+        {/* wheel button with all controls  */}
+        <div id="wheelButton">
+          {/* menu button */}
+          <div id="menuButton">
+            <b>Menu</b>
+          </div>
 
-    }
+          {/* backward button */}
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/3318/3318703.png"
+            alt="backward_button"
+            className="buttons"
+            id="backward_button"
+            onClick={this.handleBackwardButton}
+          ></img>
 
-    componentDidUpdate() {
+          {/* forward button */}
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/4211/4211386.png"
+            alt="fastforward_button"
+            className="buttons"
+            id="fast_forward_button"
+            onClick={this.handleFastForwardButton}
+          ></img>
 
-    }
+          {/* pause/play button */}
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/7960/7960808.png"
+            alt="pause_play_buttons"
+            className="buttons"
+            id="pause_play_button"
+            onClick={this.handlePlayPauseButton}
+          ></img>
 
-    componentWillUnmount() {
-
-    }
-
-    render() {
-
-        return (
-            /* control menu buttons container */
-            < div className='controlMenuContainer' >
-
-                {/* wheel button with all controls  */}
-                < div className='wheelButtons' >
-
-                    {/* menu button */}
-                    < div id="menuButton" >
-                        <b>Menu</b>
-                    </div >
-
-                    {/* backward button */}
-                    < img src="https://cdn-icons-png.flaticon.com/128/3318/3318703.png" alt="backward_button" className='buttons' id="backward_button" ></img >
-
-                    {/* forward button */}
-                    < img src="https://cdn-icons-png.flaticon.com/128/4211/4211386.png" alt="fastforward_button" className='buttons' id="fast_forward_button" ></img >
-
-                    {/* pause/play button */}
-                    < img src="https://cdn-icons-png.flaticon.com/128/7960/7960808.png" alt="pause_play_buttons" className='buttons' id="pause_play_button" ></img >
-
-                    {/* select button */}
-                    < div id='centerButton' >
-
-                    </div >
-                </div >
-            </div >
-        );
-    }
+          {/* select button */}
+          <div id="centerButton"></div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default ControlMenu;
