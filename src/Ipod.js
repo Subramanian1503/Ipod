@@ -58,7 +58,7 @@ class Ipod extends React.Component {
     }
   }
 
-  handleKeyDownEvent = (event) => {
+  handleClockWiseRotateEvent = (event) => {
     // Destrcting the state object with required variables
     const { menuItems, initialActiveMenuItem } = this.state;
 
@@ -81,7 +81,7 @@ class Ipod extends React.Component {
     }
   };
 
-  handleKeyUpEvent = (event) => {
+  handleAntiClockWiseRotateEvent = (event) => {
     // Destrcting the state object with required variables
     const { menuItems, initialActiveMenuItem } = this.state;
 
@@ -109,12 +109,15 @@ class Ipod extends React.Component {
 
   render() {
     return (
-      <div className="ipodContainer" onClick={this.handleKeyUpEvent}>
+      <div className="ipodContainer">
         <DisplayScreen
           menuItems={this.state.menuItems}
           initialActiveMenuItem={this.state.initialActiveMenuItem}
         />
-        <ControlMenu />
+        <ControlMenu
+          handleClockWiseRotateEvent={this.handleClockWiseRotateEvent}
+          handleAntiClockWiseRotateEvent={this.handleAntiClockWiseRotateEvent}
+        />
       </div>
     );
   }

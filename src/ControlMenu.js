@@ -1,23 +1,27 @@
 import React from "react";
 import "./css/ControlMenu.css";
+import ZingTouch from "zingtouch";
 
 class ControlMenu extends React.Component {
   componentDidMount() {
-    // // Create region for zing touch to handle rotate event
-    // const zingtouchRegion = new ZingTouch.Region(document.body);
-
-    // // Get the wheel element to detect rotate component in it
-    // const controlWheel = document.getElementById("wheelButton");
-
-    // // Bind the call back function with the rotate event of the wheel element
-    // zingtouchRegion.bind(
-    //   controlWheel,
-    //   "rotate",
-    //   (event) => {
-    //     console.log(event);
-    //   },
-    //   false
-    // );
+    // Create region for zing touch to handle rotate event
+    const zingtouchRegion = new ZingTouch.Region(document.body);
+    // Get the wheel element to detect rotate component in it
+    const controlWheel = document.getElementById("wheelButton");
+    // Bind the call back function with the rotate event of the wheel element
+    zingtouchRegion.bind(
+      controlWheel,
+      "rotate",
+      (event) => {
+        const distanceFromLast = event.detail.distanceFromLast;
+        if (distanceFromLast > 0) {
+          this.props.handleClockWiseRotateEvent();
+        } else {
+          this.props.handleAntiClockWiseRotateEvent();
+        }
+      },
+      false
+    );
   }
 
   render() {
