@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/DisplayScreen.css";
+import "../css/DisplayScreen.css";
 import MenuItem from "./MenuItem";
 
 class DisplayScreen extends React.Component {
@@ -19,7 +19,7 @@ class DisplayScreen extends React.Component {
   render() {
     return (
       // display screen container
-      <div className="displayContainer">
+      <div id="displayContainer">
         {/* Display menu container */}
         <div className="menuDisplayContainer">
           {/* Display menu  */}

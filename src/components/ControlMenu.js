@@ -1,5 +1,5 @@
 import React from "react";
-import "./css/ControlMenu.css";
+import "../css/ControlMenu.css";
 import ZingTouch from "zingtouch";
 
 class ControlMenu extends React.Component {
@@ -14,6 +14,7 @@ class ControlMenu extends React.Component {
       "rotate",
       (event) => {
         const distanceFromLast = event.detail.distanceFromLast;
+        console.log(event);
         if (distanceFromLast > 0) {
           this.props.handleClockWiseRotateEvent();
         } else {

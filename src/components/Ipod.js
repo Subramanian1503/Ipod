@@ -3,12 +3,17 @@ import "./DisplayScreen";
 import "./ControlMenu";
 import DisplayScreen from "./DisplayScreen";
 import ControlMenu from "./ControlMenu";
+import CoverFlow from "./CoverFlow";
+import Music from "./Music";
+import Settings from "./Settings";
+import Games from "./Games";
+import { Routes, Route } from "react-router-dom";
 
 class Ipod extends React.Component {
   constructor() {
     super();
     this.state = {
-      menuItems: ["Cover Flow", "Music", "Games", "Settings"],
+      menuItems: ["CoverFlow", "Music", "Games", "Settings"],
       initialActiveMenuItem: 0,
     };
   }
@@ -110,10 +115,33 @@ class Ipod extends React.Component {
   render() {
     return (
       <div className="ipodContainer">
-        <DisplayScreen
-          menuItems={this.state.menuItems}
-          initialActiveMenuItem={this.state.initialActiveMenuItem}
-        />
+
+        {/* home menu item */}
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <DisplayScreen
+                menuItems={this.state.menuItems}
+                initialActiveMenuItem={this.state.initialActiveMenuItem}
+              />
+            }
+          />
+
+          {/* cover flow menu item */}
+          <Route exact path="/CoverFlow" Component={CoverFlow} />
+
+          {/* music menu item */}
+          <Route exact path="/Music" Component={Music} />
+
+          {/* settings menu item */}
+          <Route exact path="/Settings" Component={Settings} />
+
+          {/* games menu item */}
+          <Route exact path="/Games" Component={Games} />
+        </Routes>
+
         <ControlMenu
           handleClockWiseRotateEvent={this.handleClockWiseRotateEvent}
           handleAntiClockWiseRotateEvent={this.handleAntiClockWiseRotateEvent}
