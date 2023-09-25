@@ -34,7 +34,9 @@ class ControlMenu extends React.Component {
           {/* menu button */}
           <div id="menuButton">
             <b>
-              <Link style= { {textDecoration: "none", color: "black"}}to={-1}>Menu</Link>
+              <Link style={{ textDecoration: "none", color: "black" }} to={-1}>
+                Menu
+              </Link>
             </b>
           </div>
 
@@ -66,7 +68,9 @@ class ControlMenu extends React.Component {
           ></img>
 
           {/* select button */}
-          <div id="centerButton"></div>
+          <Link to={`/${this.props.currentSelectedMenu}`}>
+            <div id="centerButton"></div>
+          </Link>
         </div>
       </div>
     );

@@ -115,7 +115,6 @@ class Ipod extends React.Component {
   render() {
     return (
       <div className="ipodContainer">
-
         {/* home menu item */}
         <Routes>
           <Route
@@ -145,6 +144,9 @@ class Ipod extends React.Component {
         <ControlMenu
           handleClockWiseRotateEvent={this.handleClockWiseRotateEvent}
           handleAntiClockWiseRotateEvent={this.handleAntiClockWiseRotateEvent}
+          currentSelectedMenu={
+            this.state.menuItems[this.state.initialActiveMenuItem]
+          }
         />
       </div>
     );
