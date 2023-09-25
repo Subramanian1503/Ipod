@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/ControlMenu.css";
 import ZingTouch from "zingtouch";
+import { Link } from "react-router-dom";
 
 class ControlMenu extends React.Component {
   componentDidMount() {
@@ -14,7 +15,6 @@ class ControlMenu extends React.Component {
       "rotate",
       (event) => {
         const distanceFromLast = event.detail.distanceFromLast;
-        console.log(event);
         if (distanceFromLast > 0) {
           this.props.handleClockWiseRotateEvent();
         } else {
@@ -33,7 +33,9 @@ class ControlMenu extends React.Component {
         <div id="wheelButton">
           {/* menu button */}
           <div id="menuButton">
-            <b>Menu</b>
+            <b>
+              <Link style= { {textDecoration: "none", color: "black"}}to={-1}>Menu</Link>
+            </b>
           </div>
 
           {/* backward button */}
